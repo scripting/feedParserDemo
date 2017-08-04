@@ -2,7 +2,7 @@
 	"name": "feedParserDemo",
 	"description": "A demo of Dan MacTough's feedparser package.",
 	"author": "Dave Winer <dave@smallpicture.com>",
-	"version": "0.4.0",
+	"version": "0.4.1",
 	"dependencies" : {
 		"request": "*",
 		"feedparser": "*"

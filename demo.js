@@ -1,4 +1,4 @@
-var myProductName = "feedParserDemo"; myVersion = "0.4.0";
+var myProductName = "feedParserDemo"; myVersion = "0.4.1";
 
 /*  The MIT License (MIT)
 	Copyright (c) 2014-2017 Dave Winer
@@ -52,19 +52,16 @@ function getFeed (urlfeed, callback) {
 			}
 		});
 	feedparser.on ("end", function () {
-		callback (null, feedItems);
+		callback (undefined, feedItems);
 		});
-	feedparser.on ("error", function (error) {
-		callback (error);
+	feedparser.on ("error", function (err) {
+		console.log ("getFeed: Error reading feed.");
+		callback (err);
 		});
 	}
 
-getFeed (urlTestFeed, function (error, feedItems) {
-	if (error) {
-		console.log ("getFeed: Error reading feed.");
-		}
-	else {
-		console.log ("There are " + feedItems.length + " items in the feed.\n");
+getFeed (urlTestFeed, function (err, feedItems) {
+	if (!err) {
 		function pad (num) { 
 			var s = num.toString (), ctplaces = 3;
 			while (s.length < ctplaces) {
@@ -72,8 +69,9 @@ getFeed (urlTestFeed, function (error, feedItems) {
 				}
 			return (s);
 			}
+		console.log ("There are " + feedItems.length + " items in the feed.\n");
 		for (var i = 0; i < feedItems.length; i++) {
 			console.log ("Item #" + pad (i) + ": " + feedItems [i].title + ".\n");
-			}		
+			}
 		}
 	});
