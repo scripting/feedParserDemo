@@ -73,4 +73,3 @@ getFeed (urlTestFeed, function (feedItems) {
 		console.log ("Item #" + pad (i) + ": " + feedItems [i].title + ".\n");
 		}
 	});
-
