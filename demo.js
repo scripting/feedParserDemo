@@ -60,6 +60,7 @@ function getFeed (urlfeed, callback) {
 		});
 	}
 
+console.log ("\n" + myProductName + " v" + myVersion + ".\n");
 getFeed (urlTestFeed, function (err, feedItems) {
 	if (!err) {
 		function pad (num) { 
