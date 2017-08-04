@@ -1,10 +1,10 @@
 ## feedParserDemo
 
-A demo of Dan MacTough's feedparser package.
+A demo of Dan MacTough's feedparser package for Node.
 
 ### The story
 
-I use Dan's <a href="https://github.com/danmactough/node-feedparser">feedparser</a> package in <a href="https://github.com/scripting/river5">River5</a>, which is my latest river-of-news feed reader. So all my news flows through Dan's code. That's a lot of news, and it's been working solidly for years.
+I use Dan's <a href="https://github.com/danmactough/node-feedparser">feedparser</a> package in <a href="https://github.com/scripting/river5">River5</a>, which is my latest river-of-news feed reader. So all my news flows through his code. That's a lot of news, and it's been working solidly for years.
 
 Back in 2013 when I was getting started on Node, it was a little tricky adapting to feedparser, because the package is designed for maximum efficiency at the expense of a bit of ease-of-use, especially for a Node newbie. 
 
@@ -18,7 +18,7 @@ If you're new to feedparser, this might help you get started a bit faster with l
 
 2. Open the folder in your Terminal app. 
 
-3. `npm install`
+3. At the command line: `npm install`
 
 4. `node demo.js`
 
