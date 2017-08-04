@@ -52,24 +52,28 @@ function getFeed (urlfeed, callback) {
 			}
 		});
 	feedparser.on ("end", function () {
-		callback (feedItems);
+		callback (null, feedItems);
 		});
-	feedparser.on ("error", function () {
-		console.log ("getFeed: Error reading feed.");
-		callback (undefined);
+	feedparser.on ("error", function (error) {
+		callback (error);
 		});
 	}
 
-getFeed (urlTestFeed, function (feedItems) {
-	console.log ("There are " + feedItems.length + " items in the feed.\n");
-	function pad (num) { 
-		var s = num.toString (), ctplaces = 3;
-		while (s.length < ctplaces) {
-			s = "0" + s;
-			}
-		return (s);
+getFeed (urlTestFeed, function (error, feedItems) {
+	if (error) {
+		console.log ("getFeed: Error reading feed.");
 		}
-	for (var i = 0; i < feedItems.length; i++) {
-		console.log ("Item #" + pad (i) + ": " + feedItems [i].title + ".\n");
+	else {
+		console.log ("There are " + feedItems.length + " items in the feed.\n");
+		function pad (num) { 
+			var s = num.toString (), ctplaces = 3;
+			while (s.length < ctplaces) {
+				s = "0" + s;
+				}
+			return (s);
+			}
+		for (var i = 0; i < feedItems.length; i++) {
+			console.log ("Item #" + pad (i) + ": " + feedItems [i].title + ".\n");
+			}		
 		}
 	});
