@@ -1,4 +1,4 @@
-var myProductName = "feedParserDemo"; myVersion = "0.4.1";
+var myProductName = "feedParserDemo"; myVersion = "0.4.2";
 
 /*  The MIT License (MIT)
 	Copyright (c) 2014-2017 Dave Winer
@@ -60,6 +60,7 @@ function getFeed (urlfeed, callback) {
 		});
 	}
 
+console.log ("\n" + myProductName + " v" + myVersion + ".\n"); 
 getFeed (urlTestFeed, function (err, feedItems) {
 	if (!err) {
 		function pad (num) { 
