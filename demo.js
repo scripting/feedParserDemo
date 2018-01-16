@@ -1,4 +1,4 @@
-var myProductName = "feedParserDemo"; myVersion = "0.4.2";
+var myProductName = "feedParserDemo"; myVersion = "0.4.3";
 
 /*  The MIT License (MIT)
 	Copyright (c) 2014-2017 Dave Winer
@@ -31,14 +31,14 @@ function getFeed (urlfeed, callback) {
 	var req = request (urlfeed);
 	var feedparser = new FeedParser ();
 	var feedItems = new Array ();
-	req.on ("response", function (res) {
+	req.on ("response", function (response) {
 		var stream = this;
-		if (res.statusCode == 200) {
+		if (response.statusCode == 200) {
 			stream.pipe (feedparser);
 			}
 		});
-	req.on ("error", function (res) {
-		console.log ("getFeed: Error reading feed.");
+	req.on ("error", function (err) {
+		console.log ("getFeed: err.message == " + err.message);
 		});
 	feedparser.on ("readable", function () {
 		try {
@@ -55,7 +55,7 @@ function getFeed (urlfeed, callback) {
 		callback (undefined, feedItems);
 		});
 	feedparser.on ("error", function (err) {
-		console.log ("getFeed: Error reading feed.");
+		console.log ("getFeed: err.message == " + err.message);
 		callback (err);
 		});
 	}

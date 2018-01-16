@@ -24,6 +24,12 @@ If you're new to feedparser, this might help you get started a bit faster with l
 
 You should see a list of item titles from the feed. 
 
+### Updates
+
+#### v0.4.3 -- 1/16/18 by DW
+
+Added code to display the error message when feedparser calls us back with an error.
+
 ### Questions, etc
 
 If you have questions please post an issue <a href="https://github.com/scripting/feedParserDemo/issues">here</a>. 
